@@ -1,0 +1,76 @@
+.login-vbox {
+    -fx-background-color: #292c33;
+}
+.left-part-lg {
+    -fx-background-color: #205553;
+}
+.text {
+    -fx-text-fill: #55a3a1; 
+    
+}
+
+.cinField, .passField {
+    -fx-background-color: #292c33;
+    -fx-text-fill: white; 
+     -fx-border-color: #327876 #327876 #327876 white;
+    -fx-border-width: 2px 2px 2px 0;
+    -fx-outline: none;
+
+}
+
+
+.custom-alert {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 150px;
+    -fx-background-color: #292c33;
+    -fx-border-color: #004240;
+    -fx-border-width: 0 4px 4px 4px;
+}
+
+.custom-alert .content {
+    -fx-font-size: 18px;
+    -fx-text-fill: #7ce9e5; 
+}
+
+.custom-alert .button {
+    -fx-background-color: #327876;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+
+/*-----------------------------------------------------*/
+
+.dash-vbox {
+    -fx-background-color: #205553;
+}
+
+
+.dash-pane1, .dash-pane2, .dash-pane3, .dash-pane4 {
+    -fx-border-width: 0;
+    -fx-border-color: #f2da59;
+}
+
+.dash-pane1 {
+    -fx-border-width: 0 7px 0 0;
+    -fx-border-color: #419693;
+}
+
+
+
+.dash-pane2:hover, .dash-pane3:hover, .dash-pane4:hover {
+    -fx-border-width: 0 7px 0 0;
+    -fx-border-color: #f2da59;
+}
+
+.dash-pane {
+    -fx-background-color: #292c33;
+}
+
+.nom, .tele, .cin, .add, .age, .email {
+    -fx-text-fill: white;
+}
+
+.profil-label {
+    -fx-text-fill: #7ce9e5;
+}

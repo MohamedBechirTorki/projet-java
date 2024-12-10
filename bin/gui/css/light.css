@@ -1,0 +1,19 @@
+.login-vbox {
+    -fx-background-color: white;
+}
+.left-part-lg {
+    -fx-background-color: #327876;
+}
+.text {
+    -fx-text-fill: #327876; 
+}
+
+
+
+.cinField, .passField {
+    -fx-background-color: white;
+    -fx-text-fill: black; 
+    -fx-border-color: #327876 #327876 #327876 white;
+    -fx-border-width: 2px 2px 2px 0;
+    -fx-outline: none;
+}

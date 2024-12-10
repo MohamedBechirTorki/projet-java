@@ -1,0 +1,67 @@
+.login-vbox {
+    -fx-background-color: white;
+}
+.left-part-lg {
+    -fx-background-color: #327876;
+}
+.text {
+    -fx-text-fill: #327876; 
+}
+
+
+.cinField, .passField {
+    -fx-background-color: white;
+    -fx-text-fill: black; 
+    -fx-border-color: #327876 #327876 #327876 white;
+    -fx-border-width: 2px 2px 2px 0;
+    -fx-outline: none;
+}
+
+
+.custom-alert {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 150px;
+    -fx-border-color: #41b3af;
+    -fx-border-width: 0 4px 4px 4px;
+}
+
+.custom-alert .content {
+    -fx-font-size: 18px;
+    -fx-text-fill: #327876; 
+}
+
+.custom-alert .button {
+    -fx-background-color: #327876;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+/* ---------------------------- */
+.dash-vbox {
+    -fx-background-color: #327876;
+}
+
+
+.dash-pane1, .dash-pane2, .dash-pane3, .dash-pane4 {
+    -fx-border-width: 0;
+    -fx-border-color: #f2da59;
+}
+
+.dash-pane1 {
+    -fx-border-width: 0 7px 0 0;
+    -fx-border-color: #419693;
+}
+
+
+
+.dash-pane2:hover, .dash-pane3:hover, .dash-pane4:hover {
+    -fx-border-width: 0 7px 0 0;
+    -fx-border-color: #f2da59;
+}
+.dash-pane {
+    -fx-background-color: white;
+}
+
+.profil-label {
+    -fx-text-fill: #2f5f5d;
+}
