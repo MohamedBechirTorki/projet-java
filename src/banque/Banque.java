@@ -1,17 +1,17 @@
 package banque;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
 
 public class Banque {
     public static void main(String[] args) {
+        String cin = "13525111"; // Replace with the CIN you want to query
+        String[] historique = Operation.getHistoriqueByCin(cin);
 
-        GestionCompteCourant gestionCompte = new GestionCompteCourant();
-        Compte c1 = gestionCompte.consulterCompte("4567158975347844");
-        Compte c2 = gestionCompte.consulterCompte("4567158975347899");
-        Operation o = new Operation("virement", 560, c1, c2);
-        o.executer();
-
-
-
+        for (String operation : historique) {
+            System.out.println(operation);
+        }
     }
 }

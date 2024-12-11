@@ -82,49 +82,17 @@ public class LoginController {
 
         if (cin.isEmpty() || password.isEmpty()) {
             showAlert(AlertType.ERROR, "Erreur de formulaire", "Veuillez remplir le CIN et le mot de passe.");
-        } else if (validateCredentials(cin, password)) {
-            GestionClient gestionClient = new GestionClient();
-            Client client = gestionClient.consulterClient(cin);
+        } else if (GestionClient.validateCredentials(cin, password)) {
+            Client client = GestionClient.consulterClient(cin);
             ClientManager.setClient(client);
             openDashboard(event);
         } else {
+            System.out.println(GestionClient.validateCredentials(cin, password));
             showAlert(AlertType.ERROR, "Échec de la connexion", "CIN ou mot de passe incorrect.");
         }
     }
 
-    private boolean validateCredentials(String cin, String password) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-
-        try {
-            String url = "jdbc:mysql://localhost:3306/banking_db";
-            String user = "root";
-            String pass = "medbechir";
-            connection = DriverManager.getConnection(url, user, pass);
-
-            String sql = "SELECT * FROM Clients WHERE cin = ? AND motDePass = ?";
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, cin);
-            preparedStatement.setString(2, password);
-
-            resultSet = preparedStatement.executeQuery();
-
-            return resultSet.next();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if (resultSet != null) resultSet.close();
-                if (preparedStatement != null) preparedStatement.close();
-                if (connection != null) connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
+    
     private void showAlert(AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

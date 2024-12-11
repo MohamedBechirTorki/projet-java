@@ -74,3 +74,16 @@
 .profil-label {
     -fx-text-fill: #7ce9e5;
 }
+
+
+
+.compte-btn {
+    -fx-background-color: #205553;
+    -fx-border-width: 0;
+    -fx-border-color: #f2da59;
+
+}
+
+.compte-btn:pressed {
+    -fx-border-width: 2px;
+}

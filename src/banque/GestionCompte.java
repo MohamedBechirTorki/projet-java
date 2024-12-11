@@ -6,33 +6,38 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class GestionCompte implements CompteManagement {
-    public String url = "jdbc:mysql://localhost:3306/banking_db";  // Remplacez par votre URL et base de données
-    public String user = "root";  // Utilisateur MySQL
-    public String password = "medbechir"; 
+    public static String url = "jdbc:mysql://localhost:3306/banking_db";  // Remplacez par votre URL et base de données
+    public static String user = "root";  // Utilisateur MySQL
+    public static String password = "medbechir"; 
     public GestionCompte() {}
-    @Override 
-    public void ajouterCompte(String numeroCompte, String cinClient, String typeCompte) {
-        String query = "INSERT INTO Comptes (numeroCompte, cinClient, solde, dateOuverture, typeCompte, decouvert, tauxInteret) VALUES (?, ?, ?, CURRENT_DATE, ?, ?, ?)";
+    public static void ajouterCompte(String cinClient, String typeCompte, String value) {
+        String decouvert, tauxInteret;
+        if (typeCompte == "courant") {
+            decouvert = value;
+            tauxInteret = "0";
+        } else {
+            decouvert = "0";
+            tauxInteret = value;
+        }
+        String query = "INSERT INTO Comptes (cinClient, solde, dateOuverture, typeCompte, decouvert, tauxInteret) VALUES (?, ?, CURRENT_DATE, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, numeroCompte);
-            stmt.setString(2, cinClient);
-            stmt.setString(3, "0");
-            stmt.setString(4, typeCompte);
-            stmt.setString(5, "0");
-            stmt.setString(6, "0");
+            stmt.setString(1, cinClient);
+            stmt.setString(2, "0");
+            stmt.setString(3, typeCompte);
+            stmt.setString(4, decouvert);
+            stmt.setString(5, tauxInteret);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    @Override
-    public Compte consulterCompte(String numeroCompte) {
+    public static Compte consulterCompte(String numeroCompte) {
         String query = "SELECT * FROM Comptes WHERE numeroCompte = ?";
         Compte compte = null;
         try (Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement stmt = connection.prepareStatement(query)) {
+             PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, numeroCompte);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -41,7 +46,10 @@ public abstract class GestionCompte implements CompteManagement {
                     rs.getString("cinClient"),
                     rs.getString("solde"),
                     rs.getString("dateOuverture"),
-                    rs.getString("typeCompte")
+                    rs.getString("typeCompte"),
+                    rs.getString("decouvert"),
+                    rs.getString("tauxInteret"),
+                    rs.getString("code")
                 );
             }
         } catch (SQLException e) {
@@ -49,8 +57,8 @@ public abstract class GestionCompte implements CompteManagement {
         }
         return compte;
     }
-    @Override
-    public void supprimerCompte(String numeroCompte) {
+    
+    public static void supprimerCompte(String numeroCompte) {
         String query = "DELETE FROM Comptes WHERE numeroCompte = ?";
         try (Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = connection.prepareStatement(query)) {

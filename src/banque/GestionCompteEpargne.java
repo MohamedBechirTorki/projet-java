@@ -13,9 +13,9 @@ public class GestionCompteEpargne extends GestionCompte {
         String query = "UPDATE Comptes SET solde = solde - ? WHERE numeroCompte = ? and ? <= solde";
         try (Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, String.valueOf(montant));
-            stmt.setString(3, numeroCompte);
-            stmt.setString(2, String.valueOf(montant));
+            stmt.setDouble(1, montant);
+            stmt.setString(2, numeroCompte);
+            stmt.setDouble(3, montant);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
