@@ -1,6 +1,6 @@
-package client_app;
-import banque.Client;
-import banque.GestionClient;
+package admin_app;
+import banque.GestionAdmin;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,10 +26,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.application.Platform;
 
-
-
 public class LoginController {
-
     @FXML
     private ImageView darkLightImageView;  
     @FXML
@@ -67,25 +64,19 @@ public class LoginController {
         }
     }
  
-    @FXML
-    private TextField cinField;
 
     @FXML
     private PasswordField passField;
 
     @FXML
     private void handleLogin(ActionEvent event) throws IOException {
-        String cin = cinField.getText();
-        String password = passField.getText();
-
-        if (cin.isEmpty() || password.isEmpty()) {
-            showAlert(AlertType.ERROR, "Erreur de formulaire", "Veuillez remplir le CIN et le mot de passe.");
-        } else if (GestionClient.validateCredentials(cin, password)) {
-            Client client = GestionClient.consulterClient(cin);
-            ClientManager.setClient(client);
+        String pin = passField.getText();
+        if (pin.isEmpty()) {
+            showAlert(AlertType.ERROR, "Erreur de formulaire", "Veuillez remplir le PIN.");
+        } else if (GestionAdmin.validateCredentials(pin)) {
             openDashboard(event);
         } else {
-            showAlert(AlertType.ERROR, "Échec de la connexion", "CIN ou mot de passe incorrect.");
+            showAlert(AlertType.ERROR, "Échec de la connexion", "Le numero PIN est incorrect.");
         }
     }
 
@@ -101,10 +92,10 @@ public class LoginController {
     }
 
     private void openDashboard(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/fenetres/Dashboard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/fenetres/AdminDashboard.fxml"));
         Scene dashboardScene = new Scene(loader.load());
 
-        Stage currentStage = (Stage) cinField.getScene().getWindow();
+        Stage currentStage = (Stage) passField.getScene().getWindow();
         currentStage.close();
 
         Stage dashboardStage = new Stage();
@@ -112,4 +103,6 @@ public class LoginController {
         dashboardStage.setTitle("Tableau de Bord");
         dashboardStage.show();
     }
+
+    
 }

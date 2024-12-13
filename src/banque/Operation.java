@@ -253,4 +253,38 @@ public class Operation {
 
         return operationsList.toArray(new String[0]);
     }
+
+    public static void supprimerOperationsParNumeroCompte(String numeroCompte) {
+        String sql = "DELETE FROM Operations WHERE numeroCompteSource = ? OR numeroCompteDest = ?";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, numeroCompte);
+            pstmt.setString(2, numeroCompte);
+            int affectedRows = pstmt.executeUpdate();
+            System.out.println(affectedRows + " opérations supprimées pour cette numero : " + numeroCompte);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Erreur de suppression operations: " + e.getMessage());
+        }
+    }
+
+    public static void supprimerOperationsParCinClient(String cinClient) {
+        String sql = "DELETE FROM Operations WHERE numeroCompteSource IN (SELECT numeroCompte FROM Comptes WHERE cinClient = ?) OR numeroCompteDest IN (SELECT numeroCompte FROM Comptes WHERE cinClient = ?)";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, cinClient);
+            pstmt.setString(2, cinClient);
+            int lignesAffichees = pstmt.executeUpdate();
+            System.out.println(lignesAffichees + " opérations supprimées pour le CIN du client : " + cinClient);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Erreur lors de la suppression des opérations : " + e.getMessage());
+        }
+    }
+    
+
 }

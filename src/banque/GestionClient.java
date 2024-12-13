@@ -143,8 +143,7 @@ public class GestionClient implements ClientManagement {
         return compte;
     } 
 
-    @Override
-    public Compte[] getComptes(String cin) {
+    public static Compte[] getComptes(String cin) {
         Compte[] comptes = new Compte[10];
         String query = "SELECT * FROM Comptes WHERE cinClient = ?";
         Compte compte = null;

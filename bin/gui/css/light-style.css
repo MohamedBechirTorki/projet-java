@@ -4,8 +4,15 @@
 .left-part-lg {
     -fx-background-color: #327876;
 }
+.left-part-lg-dash {
+    -fx-background-color: #007ea7;
+}
 .text {
     -fx-text-fill: #327876; 
+}
+
+.textDash {
+    -fx-text-fill: #007ea7; 
 }
 
 
@@ -16,7 +23,14 @@
     -fx-border-width: 2px 2px 2px 0;
     -fx-outline: none;
 }
+.passFieldDash {
+    -fx-background-color: white;
+    -fx-text-fill: black; 
+    -fx-border-color: #007ea7 #007ea7 #007ea7 white;
+    -fx-border-width: 2px 2px 2px 0;
+    -fx-outline: none;
 
+}
 
 .custom-alert {
     -fx-pref-width: 300px;
@@ -39,6 +53,9 @@
 /* ---------------------------- */
 .dash-vbox {
     -fx-background-color: #327876;
+}
+.dash-vbox-adm {
+    -fx-background-color: #007ea7;
 }
 
 
@@ -77,3 +94,20 @@
 .compte-btn:pressed {
     -fx-border-width: 2px;
 }
+
+.compte-btn {
+   -fx-text-fill: white;
+   background-color: #327876;
+
+}
+
+
+.simple-label {
+    -fx-text-fill: black;
+}
+.simple-field {
+    -fx-background-color: white;
+    -fx-border-width: 2px;
+    -fx-border-color: rgb(105, 138, 16);
+}
+

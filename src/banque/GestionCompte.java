@@ -5,9 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
+
 public abstract class GestionCompte implements CompteManagement {
-    public static String url = "jdbc:mysql://localhost:3306/banking_db";  // Remplacez par votre URL et base de données
-    public static String user = "root";  // Utilisateur MySQL
+    public static String url = "jdbc:mysql://localhost:3306/banking_db";  
+    public static String user = "root";  
     public static String password = "medbechir"; 
     public GestionCompte() {}
     public static void ajouterCompte(String cinClient, String typeCompte, String value) {

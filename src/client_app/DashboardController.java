@@ -130,7 +130,6 @@ public class DashboardController {
         Circle clip = new Circle(70, 70, 70); 
         profilPic.setClip(clip);
         profilPic.setPreserveRatio(true);
-
         tele.setText(ClientManager.getClient().getTelephone());
         cin.setText(ClientManager.getClient().getCin());
         adresse.setText(ClientManager.getClient().getAdresse());
@@ -407,7 +406,9 @@ public class DashboardController {
 
     private VBox vbox; 
     @FXML
-    private void handelHistorique() { 
+    private void handelHistorique(MouseEvent event) { 
+        vbox.getChildren().clear();
+        vbox.getStyleClass().add("dark-pane");
         profil.setVisible(false);
         comptes.setVisible(false);
         historique.setVisible(true);
@@ -415,9 +416,9 @@ public class DashboardController {
         ouvrirComptes.setStyle("");
         ouvrirHistorique.setStyle("-fx-border-width: 0 7px 0 0;");
 
-        String[] historique = Operation.getHistoriqueByCin(ClientManager.getClient().getCin());
+        String[] histo = Operation.getHistoriqueByCin(ClientManager.getClient().getCin());
 
-        addLinesToScrollPane(historique);
+        addLinesToScrollPane(histo);
         
         
     }

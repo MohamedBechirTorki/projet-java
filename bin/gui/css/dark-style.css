@@ -4,6 +4,9 @@
 .left-part-lg {
     -fx-background-color: #205553;
 }
+.left-part-lg-dash {
+    -fx-background-color: #006586;
+}
 .text {
     -fx-text-fill: #55a3a1; 
     
@@ -44,16 +47,18 @@
 .dash-vbox {
     -fx-background-color: #205553;
 }
-
+.dash-vbox-adm {
+    -fx-background-color: #006586;
+}
 
 .dash-pane1, .dash-pane2, .dash-pane3, .dash-pane4 {
     -fx-border-width: 0;
     -fx-border-color: #f2da59;
 }
 
-.dash-pane1 {
+.dash-pane-admin {
     -fx-border-width: 0 7px 0 0;
-    -fx-border-color: #419693;
+    -fx-border-color: #0053a0;
 }
 
 
@@ -86,4 +91,31 @@
 
 .compte-btn:pressed {
     -fx-border-width: 2px;
+}
+
+.compte-btn {
+    -fx-text-fill: white;
+    background-color: #327876;
+ 
+ }
+
+.simple-label {
+    -fx-text-fill: white;
+}
+.simple-field {
+    -fx-background-color: #292c33;
+    -fx-text-fill: white;
+    -fx-border-width: 2px;
+    -fx-border-color: rgb(105, 138, 16);
+}
+
+.scroll-pane {
+    -fx-background-color: #292c33;
+}
+
+.dark-pane {
+    -fx-background-color: #292c33;
+}
+.tab {
+    -fx-background-color: #292c33;
 }

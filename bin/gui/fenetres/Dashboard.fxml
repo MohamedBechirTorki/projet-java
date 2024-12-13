@@ -69,7 +69,7 @@
       </VBox>
       <Pane prefHeight="500.0" prefWidth="585.0" styleClass="dash-pane">
          <children>
-            <Pane fx:id="profil" prefHeight="500.0" prefWidth="570.0" visible="false">
+            <Pane fx:id="profil" prefHeight="500.0" prefWidth="570.0">
                <children>
                   <VBox prefHeight="500.0" prefWidth="570.0">
                      <children>
@@ -183,7 +183,7 @@
                                        <children>
                                           <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="3.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../image/location.jpg" />
+                                                <Image url="@../image/location.png" />
                                              </image>
                                           </ImageView>
                                           <Label fx:id="adresse" layoutX="30.0" prefHeight="50.0" prefWidth="210.0" styleClass="add">
@@ -297,78 +297,79 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Label layoutX="16.0" layoutY="68.0" prefHeight="16.0" prefWidth="170.0" text="Numero de compte">
+                  <Label layoutX="16.0" layoutY="68.0" prefHeight="16.0" prefWidth="170.0" styleClass="simple-label" text="Numero de compte">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="numCompte" layoutX="16.0" layoutY="104.0" prefHeight="19.0" prefWidth="229.0" text="Label">
+                  <Label fx:id="numCompte" layoutX="16.0" layoutY="104.0" prefHeight="19.0" prefWidth="229.0" styleClass="simple-label" text="Label">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="16.0" layoutY="138.0" prefHeight="179.0" prefWidth="539.0">
+                  <Pane layoutX="16.0" layoutY="140.0" prefHeight="162.0" prefWidth="539.0" style="-fx-border-width: 2; -fx-border-color: #327876;">
                      <children>
-                        <Label layoutX="14.0" layoutY="6.0" prefHeight="35.0" prefWidth="170.0" text="Virement">
+                        <Label layoutX="14.0" layoutY="6.0" prefHeight="35.0" prefWidth="170.0" text="Virement" textFill="#077868">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="53.0" text="Compte distination">
+                        <Label layoutX="14.0" layoutY="44.0" styleClass="simple-label" text="Compte distination">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="340.0" layoutY="53.0" prefHeight="16.0" prefWidth="103.0" text="montant">
+                        <Label layoutX="341.0" layoutY="44.0" prefHeight="16.0" prefWidth="103.0" styleClass="simple-label" text="montant">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="numDes" layoutX="14.0" layoutY="90.0" />
-                        <TextField fx:id="montantV" layoutX="340.0" layoutY="90.0" prefHeight="24.0" prefWidth="137.0" />
-                        <Button fx:id="virBtn" layoutX="371.0" layoutY="131.0" mnemonicParsing="false" onAction="#handelVirement" text="Envoyer" />
+                        <TextField fx:id="numDes" layoutX="14.0" layoutY="78.0" styleClass="simple-field" />
+                        <TextField fx:id="montantV" layoutX="340.0" layoutY="78.0" prefHeight="24.0" prefWidth="137.0" styleClass="simple-field" />
+                        <Button fx:id="virBtn" layoutX="392.0" layoutY="111.0" mnemonicParsing="false" onAction="#handelVirement" styleClass="compte-btn" text="Envoyer" textFill="#182825">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="16.0" layoutY="308.0" prefHeight="179.0" prefWidth="539.0">
+                  <Pane layoutX="16.0" layoutY="330.0" prefHeight="128.0" prefWidth="539.0" style="-fx-border-color: #327876; -fx-border-width: 2;">
                      <children>
-                        <Label layoutX="14.0" layoutY="6.0" prefHeight="35.0" prefWidth="170.0" text="Retrait">
+                        <Label layoutX="14.0" layoutY="6.0" prefHeight="35.0" prefWidth="170.0" text="Retrait" textFill="#077868">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="23.0" layoutY="58.0" prefHeight="16.0" prefWidth="103.0" text="montant">
+                        <Label layoutX="23.0" layoutY="58.0" prefHeight="16.0" prefWidth="103.0" styleClass="simple-label" text="montant">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="montantR" layoutX="23.0" layoutY="90.0" prefHeight="24.0" prefWidth="137.0" />
-                        <Button fx:id="retBtn" layoutX="309.0" layoutY="90.0" mnemonicParsing="false" onAction="#handelRetrait" text="Envoyer" />
+                        <TextField fx:id="montantR" layoutX="23.0" layoutY="90.0" prefHeight="24.0" prefWidth="137.0" styleClass="simple-field" />
+                        <Button fx:id="retBtn" layoutX="388.0" layoutY="87.0" mnemonicParsing="false" onAction="#handelRetrait" styleClass="compte-btn" text="Envoyer">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
                      </children>
                   </Pane>
-                  <Label layoutX="333.0" layoutY="68.0" prefHeight="19.0" prefWidth="181.0" text="Solde">
+                  <Label layoutX="333.0" layoutY="68.0" prefHeight="19.0" prefWidth="181.0" styleClass="simple-label" text="Solde">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="solde" layoutX="333.0" layoutY="104.0" prefHeight="19.0" prefWidth="181.0" text="Label">
+                  <Label fx:id="solde" layoutX="333.0" layoutY="104.0" prefHeight="19.0" prefWidth="181.0" styleClass="simple-label" text="Label">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="historique" prefHeight="500.0" prefWidth="564.0">
+            <Pane fx:id="historique" prefHeight="500.0" prefWidth="564.0" visible="false">
                <children>
                   <ScrollPane fx:id="histoScroll" layoutY="8.0" prefHeight="493.0" prefWidth="564.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="558.0">
                            <children>
-                              <VBox prefHeight="486.0" prefWidth="558.0">
-                                 <children>
-                                    <Label prefHeight="500.0" text="Label" />
-                                    <Label prefHeight="500.0" text="Label" />
-                                 </children>
-                              </VBox>
+                              <VBox prefHeight="486.0" prefWidth="558.0" />
                            </children>
                         </AnchorPane>
                     </content>
